@@ -1,83 +1,55 @@
-# Handwritten Digit Recognition using Neural Network
+# Neural Network for Handwritten Digit Recognition
 
-This repository contains code for building a neural network from scratch using TensorFlow to recognize and classify handwritten digits from the MNIST dataset.
+This repository contains a neural network built with TensorFlow from scratch using the MNIST dataset to recognize and classify handwritten digits.
+
+## Overview
+
+The neural network is developed using the TensorFlow library and trained on the MNIST dataset. The goal is to accurately classify handwritten digits into their respective categories (0-9). The repository consists of two main parts:
+
+1. Training the Neural Network: The first part of the code focuses on training the neural network using the MNIST dataset. It includes data preprocessing, setting up the TensorFlow graph, defining the architecture of the neural network, training the model, and evaluating its performance.
+
+2. Loading the Saved Model: The second part of the code demonstrates how to load the saved model and make predictions using new test data. It provides an example of how to use the trained model to classify handwritten digits.
 
 ## Dependencies
 
-- TensorFlow (version 1.x)
+To run the code in this repository, the following dependencies are required:
+
+- TensorFlow (v1.x)
 - NumPy
 - PIL (Python Imaging Library)
 
 ## Dataset
 
-The MNIST dataset is used for training and testing the neural network. The dataset consists of images of handwritten digits from 0 to 9.
+The MNIST dataset is used for training and evaluating the neural network. It consists of a large number of grayscale images of handwritten digits (28x28 pixels). The dataset is divided into training and testing sets, with corresponding labels indicating the digit in each image.
 
-- Training images: `MNIST/digit_xtrain.csv`
-- Training labels: `MNIST/digit_ytrain.csv`
-- Test images: `MNIST/digit_xtest.csv`
-- Test labels: `MNIST/digit_ytest.csv`
+## Code Structure
 
-## Data Preprocessing
+The repository contains two Jupyter Notebook files:
 
-- The pixel values of the images are rescaled between 0 and 1 by dividing them by 255.
-- The target values (labels) are converted to one-hot encoding.
+1. `train_neural_network.ipynb`: This notebook focuses on training the neural network using TensorFlow. It covers data preprocessing, building the network architecture, training the model, and evaluating its accuracy.
 
-## Neural Network Architecture
+2. `load_saved_model.ipynb`: This notebook demonstrates how to load the saved model obtained from training and use it to make predictions on new test data.
 
-The neural network architecture consists of two hidden layers and an output layer.
+## Instructions
 
-- Hyperparameters:
-  - Number of epochs: 50
-  - Learning rate: 1e-4
-  - Number of neurons in the first hidden layer: 512
-  - Number of neurons in the second hidden layer: 64
+To run the code in this repository, follow these steps:
 
-## Training
+1. Ensure that all the dependencies mentioned above are installed in your Python environment.
 
-The training process involves the following steps:
+2. Download the MNIST dataset files (`digit_xtrain.csv`, `digit_xtest.csv`, `digit_ytrain.csv`, `digit_ytest.csv`) and place them in the `MNIST` folder.
 
-1. Batching the training data into smaller batches.
-2. Forward propagation through the network.
-3. Calculating the loss using softmax cross-entropy.
-4. Updating the network weights using the Adam optimizer.
-5. Calculating the accuracy on the training set and logging it.
+3. Open and run the `train_neural_network.ipynb` notebook to train the neural network using the MNIST dataset.
 
-## Validation
+4. After training, the model will be saved in the `SavedModel` directory.
 
-During the training process, a validation dataset is used to monitor the model's performance. The accuracy and loss on the validation set are logged for each epoch.
+5. To make predictions using the saved model, open and run the `load_saved_model.ipynb` notebook. It loads the saved model, loads new test data, and predicts the labels for the test samples.
 
-## Testing and Evaluation
+Please refer to the notebook files for detailed code explanations and comments.
 
-After training, the model is tested on the test dataset to evaluate its performance. The accuracy on the test set is calculated and displayed as a percentage.
+## Results
 
-## Saving the Model
+The trained neural network achieves a high accuracy rate in classifying handwritten digits from the MNIST dataset. The accuracy can be evaluated by running the code provided in the notebooks.
 
-The trained model is saved using the SavedModel format.
+## Conclusion
 
-## Making Predictions
-
-The model can be used to make predictions on new handwritten digits. An example image is provided (`MNIST/test_img.png`), which is preprocessed and fed into the model for prediction.
-
-## TensorBoard Integration
-
-TensorBoard is used to visualize the training process and monitor the model's performance. The following information is logged:
-
-- Accuracy and loss metrics
-- Histograms of weights and biases
-- Input images
-
-## Usage
-
-To run the code, make sure you have the required dependencies installed. Then, execute the script and observe the training progress and evaluation results.
-
-```shell
-python neural_network_mnist.py
-```
-
-Note: This code is compatible with TensorFlow 1.x.
-
-## Author
-
-Created by [Your Name]
-
-Feel free to contribute to this repository and experiment with different architectures or datasets.
+This project demonstrates the process of building and training a neural network using TensorFlow for handwritten digit recognition. It provides a practical example of how to preprocess data, design a neural network architecture, train the model, and make predictions using a saved model. By understanding and replicating the code, you can gain insights into developing your own deep learning models for image classification tasks.
